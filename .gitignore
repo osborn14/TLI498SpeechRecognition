@@ -1,6 +1,9 @@
 # Api keys are stored in the config file
 Config.py
 
+# Don't need any temporary data
+*.csv
+
 # Don't worry about pycache files
 __pycache__/
 *.py[cod]
