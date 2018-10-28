@@ -77,7 +77,6 @@ class SpeechRecognizer:
                 for id_segment, lowest_id_segment in zip(split_id, lowest_row_id_split):
                     if id_segment > lowest_id_segment:
                         replace = False
-                        print("Replace false")
                         break;
 
                 if replace:
@@ -184,6 +183,10 @@ class WitAi(SpeechRecognizer):
 
 
 if __name__ == '__main__':
+    results_folder = "Results/"
+    if not os.path.exists(results_folder):
+        os.makedirs(results_folder)
+
     recognition = speech_recognition.Recognizer()
 
     speech_recognizer_list = list()
@@ -197,9 +200,10 @@ if __name__ == '__main__':
 
     subject_results_folder = ""
 
+
     while True:
         subject_id = input("Please enter your subject id: ")
-        subject_results_folder = "Results/" + str(subject_id) + "/"
+        subject_results_folder = results_folder + str(subject_id) + "/"
         if os.path.exists(subject_results_folder):
             print("Subject already exists! Please try another id.")
             continue
@@ -216,7 +220,6 @@ if __name__ == '__main__':
 
         with speech_recognition.Microphone() as source:
             print("Please say: " + reference_phrase)
-            #TODO: Save audio if possible
             recorded_audio = recognition.listen(source)
 
         audio_file_name = ""
