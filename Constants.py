@@ -1,5 +1,15 @@
 ID = "Id"
 PHRASE = "Phrase"
+
+GOOGLE_CLOUD        = "Google Cloud"
+GOOGLE_CLOUD_JSON   = "Google Cloud Json"
+BING_SPEECH         = "Bing Speech"
+IBM_USERNAME        = "IBM Username"
+IBM_PASSWORD        = "IBM Password"
+HOUNDIFY_ID         = "Houndify Id"
+HOUNDIFY_KEY        = "Houndify Key"
+WIT_AI              = "Wit Ai"
+
 INSERTED_WORD_COUNT = "Inserted word count"
 SUBSTITUED_WORD_COUNT = "Substituted word count"
 DELETED_WORD_COUNT = "Deleted word count"
@@ -8,3 +18,4 @@ COMMAND = "Command"
 RECOGNIZE_AUDIO = "Recognize audio"
 PRINT_AND_QUIT = "Print and quit"
 AUDIO_DATA = "Audio data"
+

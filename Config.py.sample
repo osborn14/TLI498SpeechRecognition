@@ -1,0 +1,14 @@
+import Settings as SETTINGS
+
+api_keys = {
+    SETTINGS.GOOGLE_CLOUD: "",
+    SETTINGS.BING_SPEECH: "",
+    SETTINGS.IBM_USERNAME: "",
+    SETTINGS.IBM_PASSWORD: "",
+    SETTINGS.HOUNDIFY_ID: "",
+    SETTINGS.HOUNDIFY_KEY: "",
+    SETTINGS.WIT_AI: "",
+    SETTINGS.GOOGLE_CLOUD_JSON: {
+    }
+}
+

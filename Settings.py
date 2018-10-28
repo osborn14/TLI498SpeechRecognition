@@ -1,8 +1,0 @@
-GOOGLE_CLOUD        = "Google Cloud"
-GOOGLE_CLOUD_JSON   = "Google Cloud Json"
-BING_SPEECH         = "Bing Speech"
-IBM_USERNAME        = "IBM Username"
-IBM_PASSWORD        = "IBM Password"
-HOUNDIFY_ID         = "Houndify Id"
-HOUNDIFY_KEY        = "Houndify Key"
-WIT_AI              = "Wit Ai"
