@@ -2,7 +2,7 @@ import Constants as CONSTANTS
 
 # "a" phrases taken from: https://pdfs.semanticscholar.org/2e7e/bdd353c1de9e47fdd1cf0fce61bd33d87103.pdf
 # "b" phrases taken from: https://www.cnet.com/how-to/google-home-complete-list-of-commands/
-phrase_repeats = 2
+phrase_repeats = 1
 phrases = [
     {
         CONSTANTS.ID: "a1",
@@ -37,7 +37,7 @@ phrases = [
     }, {
         CONSTANTS.ID: "b1",
         CONSTANTS.PHRASE: "What is the weather like?"
-    }, {
+    #}, {
     #     CONSTANTS.ID: "b2",
     #     CONSTANTS.PHRASE: "How many ounces are in a cup?"
     # }, {
@@ -65,8 +65,8 @@ phrases = [
     #     CONSTANTS.ID: "b10",
     #     CONSTANTS.PHRASE: "Find my phone."
     # }, {
-        CONSTANTS.ID: "b11",
-        CONSTANTS.PHRASE: "Play MSNBC from Tunein"
+##        CONSTANTS.ID: "b11",
+##        CONSTANTS.PHRASE: "Play MSNBC from Tunein"
 
     }
 ]
