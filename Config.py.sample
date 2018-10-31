@@ -1,7 +1,6 @@
 import Constants as CONSTANTS
 
 api_keys = {
-    CONSTANTS.GOOGLE_CLOUD: "",
     CONSTANTS.BING_SPEECH: "",
     CONSTANTS.IBM_USERNAME: "",
     CONSTANTS.IBM_PASSWORD: "",

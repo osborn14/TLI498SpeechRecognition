@@ -13,7 +13,7 @@ import speech_recognition as speech_recognition
 class SpeechRecognizer:
     def __init__(self):
         self.results = list()
-        self.csv_header = ["Id", "I", "S", "D", "WA", "WER"]
+        self.csv_header = ["Id", "Spoken Phrase", "I", "S", "D", "WA", "WER", "Interpreted Phrase"]
         self.label = "generic"
         self.translator = str.maketrans('', '', string.punctuation)
 
@@ -42,7 +42,8 @@ class SpeechRecognizer:
         # print("Word error rate - " + str(word_error_rate))
         # print("Word accuracy --- " + str(word_accuracy))
 
-        row_of_results = [phrase_dict[CONSTANTS.ID], inserted_words, substituted_words, deleted_words, word_accuracy, word_error_rate]
+        #TODO: Add spoken phrase and interpreted phrase in outputs
+        row_of_results = [phrase_dict[CONSTANTS.ID], phrase_dict[CONSTANTS.PHRASE], inserted_words, substituted_words, deleted_words, word_accuracy, word_error_rate, interpreted_phrase]
         self.results.append(row_of_results)
 
     def printResults(self, subject_results_folder):
@@ -50,7 +51,9 @@ class SpeechRecognizer:
 
         output_file_name = subject_id + "_" + self.label.lower() + ".csv"
         output_file_name_with_path = subject_results_folder + output_file_name
-        output_file = open(output_file_name_with_path, 'w')
+        output_file = open(output_file_name_with_path, 'w', newline='')
+
+        
 
         with output_file:
             writer = csv.writer(output_file)
@@ -114,14 +117,14 @@ class Google(SpeechRecognizer):
 
 
 class GoogleCloud(SpeechRecognizer):
-    def __init__(self, api_key_json):
+    def __init__(self, json_key):
         super().__init__()
         self.label = "google_cloud"
-        self.api_key_json = api_key_json
+        self.json_key = json_key
 
     def recognizeAudio(self, audio):
         try:
-            return recognition.recognize_google_cloud(audio, credentials_json=self.api_key_json)
+            return recognition.recognize_google_cloud(audio, credentials_json=self.json_key)
         except:
             return None
 
@@ -130,7 +133,7 @@ class Bing(SpeechRecognizer):
     def __init__(self, key):
         super().__init__()
         self.label = "bing"
-        self.key = api_keys[SETTINGS.BING_SPEECH]
+        self.key = key
 
     def recognizeAudio(self, audio):
         try:
@@ -192,11 +195,17 @@ if __name__ == '__main__':
     speech_recognizer_list = list()
     speech_recognizer_list.append(Sphinx())
     speech_recognizer_list.append(Google())
-    # speech_recognizer_list.append(GoogleCloud(json.dumps(api_keys[SETTINGS.GOOGLE_CLOUD_JSON])))
-    # speech_recognizer_list.append(Bing(api_keys[SETTINGS.BING_SPEECH]))
-    # speech_recognizer_list.append(Houndify(api_keys[SETTINGS.HOUNDIFY_ID], api_keys[SETTINGS.HOUNDIFY_KEY]))
-    # speech_recognizer_list.append(IBM(api_keys[SETTINGS.IBM_USERNAME], api_keys[SETTINGS.IBM_PASSWORD]))
-    # speech_recognizer_list.append(WitAi(api_keys[SETTINGS.WIT_AI]))
+    
+    if api_keys[CONSTANTS.GOOGLE_CLOUD_JSON]:
+        speech_recognizer_list.append(GoogleCloud(json.dumps(api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
+    if api_keys[CONSTANTS.BING_SPEECH]:
+        speech_recognizer_list.append(Bing(api_keys[CONSTANTS.BING_SPEECH]))
+    if api_keys[CONSTANTS.HOUNDIFY_ID] and api_keys[CONSTANTS.HOUNDIFY_KEY]:
+        speech_recognizer_list.append(Houndify(api_keys[CONSTANTS.HOUNDIFY_ID], api_keys[CONSTANTS.HOUNDIFY_KEY]))
+    if api_keys[CONSTANTS.IBM_USERNAME] and api_keys[CONSTANTS.IBM_PASSWORD]:
+        speech_recognizer_list.append(IBM(api_keys[CONSTANTS.IBM_USERNAME], api_keys[CONSTANTS.IBM_PASSWORD]))
+    if api_keys[CONSTANTS.WIT_AI]:
+        speech_recognizer_list.append(WitAi(api_keys[CONSTANTS.WIT_AI]))
 
     subject_results_folder = ""
 

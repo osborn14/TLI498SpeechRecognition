@@ -4,6 +4,9 @@ Config.py
 # Don't need any results
 Results/*
 
+# Skip the virtual enviroment
+VirtualEnv/
+
 # Don't worry about pycache files
 __pycache__/
 *.py[cod]
