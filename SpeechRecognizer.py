@@ -1,5 +1,6 @@
 # !/usr/bin/env python3
-import json, string, queue, csv, time, random, re, wave, pyaudio, os
+import json, string, queue, csv, time, random, re, wave, pyaudio, os, signal, sys
+
 
 from Config import api_keys
 from Phrases import phrases, phrase_repeats
@@ -42,7 +43,7 @@ class SpeechRecognizer:
         # print("Word error rate - " + str(word_error_rate))
         # print("Word accuracy --- " + str(word_accuracy))
 
-        #TODO: Add spoken phrase and interpreted phrase in outputs
+        # TODO: Add confidence when possible
         row_of_results = [phrase_dict[CONSTANTS.ID], phrase_dict[CONSTANTS.PHRASE], inserted_words, substituted_words, deleted_words, word_accuracy, word_error_rate, interpreted_phrase]
         self.results.append(row_of_results)
 
@@ -184,8 +185,14 @@ class WitAi(SpeechRecognizer):
 
         return ""
 
+def signal_handler(sig, frame):
+        for recognizer in speech_recognizer_list:
+            recognizer.printResults(subject_results_folder)
+        sys.exit(0)
+
 
 if __name__ == '__main__':
+    signal.signal(signal.SIGINT, signal_handler)
     results_folder = "Results/"
     if not os.path.exists(results_folder):
         os.makedirs(results_folder)
@@ -196,14 +203,14 @@ if __name__ == '__main__':
     speech_recognizer_list.append(Sphinx())
     speech_recognizer_list.append(Google())
     
-    if api_keys[CONSTANTS.GOOGLE_CLOUD_JSON]:
-        speech_recognizer_list.append(GoogleCloud(json.dumps(api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
+    #if api_keys[CONSTANTS.GOOGLE_CLOUD_JSON]:
+        #speech_recognizer_list.append(GoogleCloud(json.dumps(api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
     if api_keys[CONSTANTS.BING_SPEECH]:
         speech_recognizer_list.append(Bing(api_keys[CONSTANTS.BING_SPEECH]))
-    if api_keys[CONSTANTS.HOUNDIFY_ID] and api_keys[CONSTANTS.HOUNDIFY_KEY]:
-        speech_recognizer_list.append(Houndify(api_keys[CONSTANTS.HOUNDIFY_ID], api_keys[CONSTANTS.HOUNDIFY_KEY]))
-    if api_keys[CONSTANTS.IBM_USERNAME] and api_keys[CONSTANTS.IBM_PASSWORD]:
-        speech_recognizer_list.append(IBM(api_keys[CONSTANTS.IBM_USERNAME], api_keys[CONSTANTS.IBM_PASSWORD]))
+    #if api_keys[CONSTANTS.HOUNDIFY_ID] and api_keys[CONSTANTS.HOUNDIFY_KEY]:
+        #speech_recognizer_list.append(Houndify(api_keys[CONSTANTS.HOUNDIFY_ID], api_keys[CONSTANTS.HOUNDIFY_KEY]))
+    #if api_keys[CONSTANTS.IBM_USERNAME] and api_keys[CONSTANTS.IBM_PASSWORD]:
+       # speech_recognizer_list.append(IBM(api_keys[CONSTANTS.IBM_USERNAME], api_keys[CONSTANTS.IBM_PASSWORD]))
     if api_keys[CONSTANTS.WIT_AI]:
         speech_recognizer_list.append(WitAi(api_keys[CONSTANTS.WIT_AI]))
 
