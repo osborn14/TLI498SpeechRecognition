@@ -188,6 +188,8 @@ class WitAi(SpeechRecognizer):
 def signal_handler(sig, frame):
         for recognizer in speech_recognizer_list:
             recognizer.printResults(subject_results_folder)
+
+        print("Exiting")
         sys.exit(0)
 
 
@@ -197,7 +199,9 @@ if __name__ == '__main__':
     if not os.path.exists(results_folder):
         os.makedirs(results_folder)
 
+    
     recognition = speech_recognition.Recognizer()
+    
 
     speech_recognizer_list = list()
     speech_recognizer_list.append(Sphinx())
@@ -236,7 +240,10 @@ if __name__ == '__main__':
 
         with speech_recognition.Microphone() as source:
             print("Please say: " + reference_phrase)
+
+            print("Before microphone")
             recorded_audio = recognition.listen(source)
+            print("After microphone")
 
         audio_file_name = ""
         file_name_counter = 0
