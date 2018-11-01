@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9cde24f6-61be-4a55-8312-1187f539f1a8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Config.py.sample" beforeDir="false" afterPath="$PROJECT_DIR$/Config.py.sample" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Phrases.py" beforeDir="false" afterPath="$PROJECT_DIR$/Phrases.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpeechRecognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/SpeechRecognizer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,13 +24,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpeechRecognizer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SpeechRecognizer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SpeechRecognizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="467">
+              <caret line="142" column="19" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
               <folding>
-                <element signature="e#24#92#0" expanded="true" />
+                <element signature="e#24#105#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -37,17 +39,26 @@
       <file leaf-file-name="Config.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="1" />
+            <state relative-caret-position="360">
+              <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Config.py.sample" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Config.py.sample" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Config.py.sample">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state>
+              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Phrases.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Phrases.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -92,14 +103,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/SpeechRecognizerWithParticalMultiThreading.py" />
-        <option value="$PROJECT_DIR$/Phrases.py" />
         <option value="$PROJECT_DIR$/WordErrorRate.py" />
         <option value="$PROJECT_DIR$/Settings.py" />
         <option value="$PROJECT_DIR$/Constants.py" />
         <option value="$PROJECT_DIR$/Config.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/SpeechRecognizer.py" />
         <option value="$PROJECT_DIR$/Config.py.sample" />
+        <option value="$PROJECT_DIR$/Phrases.py" />
+        <option value="$PROJECT_DIR$/SpeechRecognizer.py" />
       </list>
     </option>
   </component>
@@ -243,7 +254,7 @@
         <state relative-caret-position="930">
           <caret line="71" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="33" />
           <folding>
-            <element signature="e#24#92#0" expanded="true" />
+            <element signature="e#24#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -260,7 +271,7 @@
         <state relative-caret-position="885">
           <caret line="68" column="33" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="33" />
           <folding>
-            <element signature="e#24#92#0" expanded="true" />
+            <element signature="e#24#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -356,7 +367,7 @@
         <state relative-caret-position="1395">
           <caret line="93" column="109" lean-forward="true" selection-start-line="93" selection-start-column="109" selection-end-line="93" selection-end-column="109" />
           <folding>
-            <element signature="e#24#92#0" expanded="true" />
+            <element signature="e#24#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -373,7 +384,7 @@
         <state relative-caret-position="1965">
           <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
           <folding>
-            <element signature="e#24#92#0" expanded="true" />
+            <element signature="e#24#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -442,7 +453,7 @@
         <state relative-caret-position="1965">
           <caret line="131" column="52" lean-forward="true" selection-start-line="131" selection-start-column="52" selection-end-line="131" selection-end-column="52" />
           <folding>
-            <element signature="e#24#92#0" expanded="true" />
+            <element signature="e#24#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -531,34 +542,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Phrases.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SpeechRecognizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-          <folding>
-            <element signature="e#24#92#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" />
+        <state relative-caret-position="360">
+          <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Config.py.sample">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Phrases.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SpeechRecognizer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="142" column="19" selection-start-line="142" selection-start-column="19" selection-end-line="142" selection-end-column="19" />
+          <folding>
+            <element signature="e#24#105#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

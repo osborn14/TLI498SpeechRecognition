@@ -20,7 +20,7 @@ class SpeechRecognizer:
 
     def calculateScores(self, reference_phrase, interpreted_phrase):
         if not interpreted_phrase:
-            row_of_results = 'N/A' * 6
+            row_of_results = [phrase_dict[CONSTANTS.ID], phrase_dict[CONSTANTS.PHRASE], 'na', 'na', 'na', 'na']
             self.results.append(row_of_results)
             return
 
@@ -139,7 +139,8 @@ class Bing(SpeechRecognizer):
     def recognizeAudio(self, audio):
         try:
             return recognition.recognize_bing(audio, key=self.key)
-        except:
+        except Exception as e:
+            print(str(e))
             return None
 
 
@@ -213,8 +214,8 @@ if __name__ == '__main__':
         speech_recognizer_list.append(Bing(api_keys[CONSTANTS.BING_SPEECH]))
     #if api_keys[CONSTANTS.HOUNDIFY_ID] and api_keys[CONSTANTS.HOUNDIFY_KEY]:
         #speech_recognizer_list.append(Houndify(api_keys[CONSTANTS.HOUNDIFY_ID], api_keys[CONSTANTS.HOUNDIFY_KEY]))
-    #if api_keys[CONSTANTS.IBM_USERNAME] and api_keys[CONSTANTS.IBM_PASSWORD]:
-       # speech_recognizer_list.append(IBM(api_keys[CONSTANTS.IBM_USERNAME], api_keys[CONSTANTS.IBM_PASSWORD]))
+    if api_keys[CONSTANTS.IBM_USERNAME] and api_keys[CONSTANTS.IBM_PASSWORD]:
+        speech_recognizer_list.append(IBM(api_keys[CONSTANTS.IBM_USERNAME], api_keys[CONSTANTS.IBM_PASSWORD]))
     if api_keys[CONSTANTS.WIT_AI]:
         speech_recognizer_list.append(WitAi(api_keys[CONSTANTS.WIT_AI]))
 

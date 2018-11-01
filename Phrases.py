@@ -48,7 +48,7 @@ phrases = [
          CONSTANTS.PHRASE: "Play Drake on Spotify."
      }, {
          CONSTANTS.ID: "b5",
-         CONSTANTS.PHRASE: "Turn on the lights"
+         CONSTANTS.PHRASE: "Turn on the lights."
      }, {
          CONSTANTS.ID: "b6",
          CONSTANTS.PHRASE: "Raise the temperature 5 degrees."
@@ -60,13 +60,13 @@ phrases = [
          CONSTANTS.PHRASE: "How much is a round-trip flight to New York?"
      }, {
          CONSTANTS.ID: "b9",
-         CONSTANTS.PHRASE: "What's the best restaurant in Berlin."
+         CONSTANTS.PHRASE: "What's the best restaurant in Berlin?"
      }, {
          CONSTANTS.ID: "b10",
          CONSTANTS.PHRASE: "Find my phone."
      }, {
         CONSTANTS.ID: "b11",
-        CONSTANTS.PHRASE: "Play MSNBC from Tunein"
+        CONSTANTS.PHRASE: "Play MSNBC from Tunein."
 
     }
 ]
