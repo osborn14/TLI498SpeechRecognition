@@ -1,5 +1,6 @@
 import Constants as CONSTANTS
 
+physical_microphone_name = ""
 api_keys = {
     CONSTANTS.BING_SPEECH: "",
     CONSTANTS.IBM_USERNAME: "",

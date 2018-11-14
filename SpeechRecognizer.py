@@ -2,7 +2,7 @@
 import json, string, queue, csv, time, random, re, wave, pyaudio, os, signal, sys
 
 
-from Config import api_keys
+import Config as Config
 from Phrases import phrases, phrase_repeats
 from WordErrorRate import compareWordLists
 
@@ -208,23 +208,35 @@ if __name__ == '__main__':
     speech_recognizer_list.append(Sphinx())
     speech_recognizer_list.append(Google())
     
-    #if api_keys[CONSTANTS.GOOGLE_CLOUD_JSON]:
-        #speech_recognizer_list.append(GoogleCloud(json.dumps(api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
-    if api_keys[CONSTANTS.BING_SPEECH]:
-        speech_recognizer_list.append(Bing(api_keys[CONSTANTS.BING_SPEECH]))
-    #if api_keys[CONSTANTS.HOUNDIFY_ID] and api_keys[CONSTANTS.HOUNDIFY_KEY]:
-        #speech_recognizer_list.append(Houndify(api_keys[CONSTANTS.HOUNDIFY_ID], api_keys[CONSTANTS.HOUNDIFY_KEY]))
-    if api_keys[CONSTANTS.IBM_USERNAME] and api_keys[CONSTANTS.IBM_PASSWORD]:
-        speech_recognizer_list.append(IBM(api_keys[CONSTANTS.IBM_USERNAME], api_keys[CONSTANTS.IBM_PASSWORD]))
-    if api_keys[CONSTANTS.WIT_AI]:
-        speech_recognizer_list.append(WitAi(api_keys[CONSTANTS.WIT_AI]))
+    #if Config.api_keys[CONSTANTS.GOOGLE_CLOUD_JSON]:
+        #speech_recognizer_list.append(GoogleCloud(json.dumps(Config.api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
+    if Config.api_keys[CONSTANTS.BING_SPEECH]:
+        speech_recognizer_list.append(Bing(Config.api_keys[CONSTANTS.BING_SPEECH]))
+    #if Config.api_keys[CONSTANTS.HOUNDIFY_ID] and Config.api_keys[CONSTANTS.HOUNDIFY_KEY]:
+        #speech_recognizer_list.append(Houndify(Config.api_keys[CONSTANTS.HOUNDIFY_ID], Config.api_keys[CONSTANTS.HOUNDIFY_KEY]))
+    if Config.api_keys[CONSTANTS.IBM_USERNAME] and Config.api_keys[CONSTANTS.IBM_PASSWORD]:
+        speech_recognizer_list.append(IBM(Config.api_keys[CONSTANTS.IBM_USERNAME], Config.api_keys[CONSTANTS.IBM_PASSWORD]))
+    if Config.api_keys[CONSTANTS.WIT_AI]:
+        speech_recognizer_list.append(WitAi(Config.api_keys[CONSTANTS.WIT_AI]))
 
     subject_results_folder = ""
+
+    if Config.physical_microphone_name in locals():
+        print(Config.physical_microphone_name + " found in locals")
+    if Config.physical_microphone_name in globals():
+        print(Config.physical_microphone_name + " found in globals")
+    else:
+        print(Config.physical_microphone_name + " NOT found!")
 
 
     while True:
         subject_id = input("Please enter your subject id: ")
-        subject_results_folder = results_folder + str(subject_id) + "/"
+
+        if len(physical_microphone_name) > 0:
+            
+        results_folder_name = str(subject_id) if 
+        subject_results_folder = results_folder + str(subject_id) + "_" +  + "/"
+        
         if os.path.exists(subject_results_folder):
             print("Subject already exists! Please try another id.")
             continue
