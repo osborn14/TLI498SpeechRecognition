@@ -30,7 +30,7 @@ phrases = [
          CONSTANTS.PHRASE: "Highway and freeway mean the same thing."
      }, {
          CONSTANTS.ID: "a9",
-         CONSTANTS.PHRASE: "His hip stuck the knee of the next player."
+         CONSTANTS.PHRASE: "His hip struck the knee of the next player."
      }, {
          CONSTANTS.ID: "a10",
          CONSTANTS.PHRASE: "Jazz and swing fans like fast music."
@@ -67,6 +67,5 @@ phrases = [
      }, {
         CONSTANTS.ID: "b11",
         CONSTANTS.PHRASE: "Play MSNBC from Tunein."
-
     }
 ]

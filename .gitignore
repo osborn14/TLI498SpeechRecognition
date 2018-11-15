@@ -6,6 +6,7 @@ Results/*
 
 # Skip the virtual enviroment
 VirtualEnv/
+venv/
 
 # Don't worry about pycache files
 __pycache__/
