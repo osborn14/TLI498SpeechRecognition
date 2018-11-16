@@ -210,7 +210,7 @@ if __name__ == '__main__':
     speech_recognizer_list.append(Sphinx())
     speech_recognizer_list.append(Google())
 
-    if  CONSTANTS.BING_SPEECH in Config.api_keys:
+    if CONSTANTS.BING_SPEECH in Config.api_keys:
         speech_recognizer_list.append(GoogleCloud(json.dumps(Config.api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
     if CONSTANTS.BING_SPEECH in Config.api_keys:
         speech_recognizer_list.append(Bing(Config.api_keys[CONSTANTS.BING_SPEECH]))
@@ -222,11 +222,11 @@ if __name__ == '__main__':
     # results_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')) + "/Results/"
     results_path = "Results/"
 
-    print(os.listdir(results_path))
+    #print(os.listdir(results_path))
     for audio_folder in os.listdir(results_path):
         audio_folder_path = results_path + audio_folder + "/"
 
-        print(os.listdir(audio_folder_path))
+        #print(os.listdir(audio_folder_path))
         for audio_file in os.listdir(audio_folder_path):
             if audio_file[-4:] != ".wav":
                 continue

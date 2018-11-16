@@ -10,6 +10,10 @@ import Constants as CONSTANTS
 
 import speech_recognition as speech_recognition
 
+# TODO: Add option to redo phrase - type r
+# TODO: Add way to "overwrite" user mistakes
+# TODO: Check TIMIT database
+# TODO: Look at reducing phrase count
 
 if __name__ == '__main__':
     results_folder = "Results/"
@@ -44,9 +48,9 @@ if __name__ == '__main__':
         with speech_recognition.Microphone() as source:
             print("Please say: " + reference_phrase)
 
-            print("Before microphone")
+            #print("Before microphone")
             recorded_audio = recognition.listen(source)
-            print("After microphone")
+            #print("After microphone")
 
         audio_file_name = ""
         file_name_counter = 0
