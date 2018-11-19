@@ -45,26 +45,36 @@ if __name__ == '__main__':
     for phrase_dict in prepared_phrases_dict_list:
         reference_phrase = phrase_dict[CONSTANTS.PHRASE]
 
-        with speech_recognition.Microphone() as source:
-            print("Please say: " + reference_phrase)
-
-            #print("Before microphone")
-            recorded_audio = recognition.listen(source)
-            #print("After microphone")
-
-        audio_file_name = ""
-        file_name_counter = 0
         while True:
-            file_name_counter += 1
-            audio_file_name = subject_results_folder + phrase_dict[CONSTANTS.ID] + "_" + str(file_name_counter) + ".wav"
-            if not os.path.isfile(audio_file_name):
-                break;
+            with speech_recognition.Microphone() as source:
+                print("Please say: " + reference_phrase)
 
-        wav_data = recorded_audio.get_wav_data()
-        output_file = wave.open(audio_file_name, 'wb')
-        output_file.setnchannels(1)
-        output_file.setsampwidth(recorded_audio.sample_width)
-        output_file.setframerate(recorded_audio.sample_rate)
-        output_file.writeframes(wav_data)
-        output_file.close()
+                recorded_audio = recognition.listen(source)
+
+            audio_file_name = ""
+            file_name_counter = 0
+            while True:
+                file_name_counter += 1
+                audio_file_name = subject_results_folder + phrase_dict[CONSTANTS.ID] + "_" + str(file_name_counter) + ".wav"
+                if not os.path.isfile(audio_file_name):
+                    break;
+                    
+            recording_cmd = input("cmd: ")
+
+            redo_strings = {'r', 'redo', 'retry'}
+            if recording_cmd in redo_strings:
+                # Restart at the top of the while loop if the "redo" command is given
+                continue
+
+            wav_data = recorded_audio.get_wav_data()
+            output_file = wave.open(audio_file_name, 'wb')
+            output_file.setnchannels(1)
+            output_file.setsampwidth(recorded_audio.sample_width)
+            output_file.setframerate(recorded_audio.sample_rate)
+            output_file.writeframes(wav_data)
+            output_file.close()
+
+
+
+
 
