@@ -34,10 +34,40 @@ phrases = [
      }, {
          CONSTANTS.ID: "a10",
          CONSTANTS.PHRASE: "Jazz and swing fans like fast music."
-    }, {
-        CONSTANTS.ID: "b1",
-        CONSTANTS.PHRASE: "What is the weather like?"
-    }, {
+     }, {
+##         CONSTANTS.ID: "h1",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h2",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h3",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h4",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h5",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h6",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h7",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h8",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h9",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+##         CONSTANTS.ID: "h10",
+##         CONSTANTS.PHRASE: ""
+##     }, {
+         CONSTANTS.ID: "b1",
+         CONSTANTS.PHRASE: "What is the weather like?"
+     }, {
          CONSTANTS.ID: "b2",
          CONSTANTS.PHRASE: "How many ounces are in a cup?"
      }, {
