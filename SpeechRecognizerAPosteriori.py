@@ -11,6 +11,10 @@ import Constants as CONSTANTS
 
 import speech_recognition as speech_recognition
 
+# TODO: Add console updates
+# TODO: Update Ctrl-C signal interceptor
+#
+
 
 class SpeechRecognizer:
     def __init__(self):
@@ -55,7 +59,7 @@ class SpeechRecognizer:
         organized_list = self.sortResults(self.results)
 
         # output_file_name = subject_id + "_" + self.label.lower() + "new.csv"
-        output_file_name = self.label.lower() + "new.csv"
+        output_file_name = self.label.lower() + ".csv"
         output_file_name_with_path = subject_results_folder + output_file_name
         output_file = open(output_file_name_with_path, 'w', newline='')
 
@@ -129,7 +133,8 @@ class GoogleCloud(SpeechRecognizer):
     def recognizeAudio(self, audio):
         try:
             return recognition.recognize_google_cloud(audio, credentials_json=self.json_key)
-        except:
+        except Exception as e:
+            print(str(e))
             return None
 
 
@@ -140,6 +145,7 @@ class Bing(SpeechRecognizer):
         self.key = key
 
     def recognizeAudio(self, audio):
+        print(self.key)
         try:
             return recognition.recognize_bing(audio, key=self.key)
         except Exception as e:
@@ -190,16 +196,16 @@ class WitAi(SpeechRecognizer):
         return ""
 
 
-def signal_handler(sig, frame):
-    for recognizer in speech_recognizer_list:
-        recognizer.printResults(subject_results_folder)
-
-    print("Exiting")
-    sys.exit(0)
+# def signal_handler(sig, frame):
+#     for recognizer in speech_recognizer_list:
+#         recognizer.printResults(subject_results_folder)
+#
+#     print("Exiting")
+#     sys.exit(0)
 
 
 if __name__ == '__main__':
-    signal.signal(signal.SIGINT, signal_handler)
+    # signal.signal(signal.SIGINT, signal_handler)
     results_folder = "Results/"
     if not os.path.exists(results_folder):
         os.makedirs(results_folder)
@@ -210,7 +216,7 @@ if __name__ == '__main__':
     speech_recognizer_list.append(Sphinx())
     speech_recognizer_list.append(Google())
 
-    if CONSTANTS.BING_SPEECH in Config.api_keys:
+    if CONSTANTS.GOOGLE_CLOUD_JSON in Config.api_keys:
         speech_recognizer_list.append(GoogleCloud(json.dumps(Config.api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
     if CONSTANTS.BING_SPEECH in Config.api_keys:
         speech_recognizer_list.append(Bing(Config.api_keys[CONSTANTS.BING_SPEECH]))

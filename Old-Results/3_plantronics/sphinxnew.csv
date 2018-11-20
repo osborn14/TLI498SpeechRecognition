@@ -1,0 +1,7 @@
+Id,Spoken Phrase,I,S,D,WA,WER,Interpreted Phrase
+b10,Find my phone.,0,3,0,0.0,1.0,hamas or not
+b10,Find my phone.,0,3,0,0.0,1.0,some are sown
+b10,Find my phone.,0,2,1,0.0,1.0,hamas home
+b11,Play MSNBC from Tunein.,2,4,0,0.0,1.5,plus an issue for dinner and
+b11,Play MSNBC from Tunein.,2,4,0,0.0,1.5,i'm a solution for two men
+b11,Play MSNBC from Tunein.,2,4,0,0.0,1.5,where most of the safe return

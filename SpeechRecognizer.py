@@ -74,6 +74,8 @@ if __name__ == '__main__':
             output_file.writeframes(wav_data)
             output_file.close()
 
+            break;
+
 
 
 

@@ -1,0 +1,7 @@
+Id,Spoken Phrase,I,S,D,WA,WER,Interpreted Phrase
+b10,Find my phone.,0,1,0,0.6666666666666666,0.3333333333333333,on my phone
+b10,Find my phone.,0,0,0,1.0,0.0,find my phone
+b10,Find my phone.,0,0,0,1.0,0.0,find my phone
+b11,Play MSNBC from Tunein.,0,0,0,1.0,0.0,play MSNBC from TuneIn
+b11,Play MSNBC from Tunein.,0,0,1,0.75,0.25,MSNBC from TuneIn
+b11,Play MSNBC from Tunein.,0,0,1,0.75,0.25,MSNBC from TuneIn

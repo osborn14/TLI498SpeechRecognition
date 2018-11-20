@@ -1,0 +1,22 @@
+Id,Spoken Phrase,I,S,D,WA,WER,Interpreted Phrase
+a10,Jazz and swing fans like fast music.,0,0,0,1.0,0.0,Jazz and swing fans like fast music
+a1,Please take this dirty table cloth to the cleaners for me.,0,1,3,0.6363636363636364,0.36363636363636365,please take this dirty tablecloth cleaners for me
+a2,My father ran him off here six years ago.,0,2,0,0.7777777777777778,0.2222222222222222,my father ran him off your 6 years ago
+a3,Who authorized the unlimited expense account?,0,0,0,1.0,0.0,who authorized the unlimited expense account
+a4,"We can get it if we dig, he said patiently.",0,1,0,0.9,0.1,we can get it if we did he said patiently
+a5,The fish began to leap frantically on the surface of the small lake.,0,4,0,0.6923076923076923,0.3076923076923077,the fish can't delete friends really on the surface of the small Lake
+a6,Micheal colored the bedroom wall with crayons.,0,2,0,0.7142857142857143,0.2857142857142857,Michael closed the bedroom wall with crayons
+a7,Right now may not be the best time for business mergers.,0,4,0,0.6363636363636364,0.36363636363636365,and I'm going to be the best time for business mergers
+a8,Highway and freeway mean the same thing.,0,0,0,1.0,0.0,Highway and freeway mean the same thing
+a9,His hip struck the knee of the next player.,0,4,2,0.3333333333333333,0.6666666666666666,is hip stroke than either next player
+b10,Find my phone.,0,0,0,1.0,0.0,find my phone
+b11,Play MSNBC from Tunein.,0,0,0,1.0,0.0,play MSNBC from TuneIn
+b1,What is the weather like?,0,0,0,1.0,0.0,what is the weather like
+b2,How many ounces are in a cup?,0,0,0,1.0,0.0,how many ounces are in a cup
+b3,Set an alarm for 5:30am.,1,1,0,0.8,0.4,set an alarm for 5:30 a.m.
+b4,Play Drake on Spotify.,0,0,0,1.0,0.0,Play Drake on Spotify
+b5,Turn on the lights.,0,0,0,1.0,0.0,turn on the lights
+b6,Raise the temperature 5 degrees.,0,0,0,1.0,0.0,raise the temperature 5 degrees
+b7,Add spaghetti to my shopping list.,0,2,0,0.6666666666666666,0.3333333333333333,it's good to my shopping list
+b8,How much is a round-trip flight to New York?,0,0,0,1.0,0.0,how much is a round-trip flight to New York
+b9,What's the best restaurant in Berlin?,0,0,0,1.0,0.0,what's the best restaurant in Berlin
