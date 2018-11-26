@@ -3,10 +3,14 @@ Config.py
 
 # Don't need any results
 Results/*
+Old-Results/*
 
-# Skip the virtual enviroment
+# Skip the virtual environment
 VirtualEnv/
 venv/
+
+# Skip the intellij specific data for now
+.idea
 
 # Don't worry about pycache files
 __pycache__/

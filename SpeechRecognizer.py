@@ -58,7 +58,7 @@ if __name__ == '__main__':
                 audio_file_name = subject_results_folder + phrase_dict[CONSTANTS.ID] + "_" + str(file_name_counter) + ".wav"
                 if not os.path.isfile(audio_file_name):
                     break;
-                    
+
             recording_cmd = input("cmd: ")
 
             redo_strings = {'r', 'redo', 'retry'}
