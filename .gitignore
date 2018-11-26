@@ -10,7 +10,7 @@ VirtualEnv/
 venv/
 
 # Skip the intellij specific data for now
-.idea
+.idea/
 
 # Don't worry about pycache files
 __pycache__/
