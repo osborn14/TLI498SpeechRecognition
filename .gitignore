@@ -12,6 +12,10 @@ venv/
 # Skip the intellij specific data for now
 .idea/
 
+# Skip pyinstaller folders
+dist/
+build/
+
 # Don't worry about pycache files
 __pycache__/
 *.py[cod]
