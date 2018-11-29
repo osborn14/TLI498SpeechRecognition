@@ -16,19 +16,21 @@ import speech_recognition as speech_recognition
 # TODO: Look at reducing phrase count
 
 if __name__ == '__main__':
-    results_folder = "Results/"
+    results_folder = "SpeechRecognizerResults/"
     if not os.path.exists(results_folder):
         os.makedirs(results_folder)
 
     recognition = speech_recognition.Recognizer()
 
     subject_results_folder = ""
+    redo_counters = 0
 
     while True:
+        physical_microphone_name = input("Please enter your microphone name: ")
         subject_id = input("Please enter your subject id: ")
 
         try:
-            subject_results_folder = results_folder + str(subject_id) + "_" + Config.physical_microphone_name + "/"
+            subject_results_folder = results_folder + str(subject_id) + "_" + physical_microphone_name + "/"
         except AttributeError:
             subject_results_folder = results_folder + str(subject_id) + "/"
         
@@ -64,6 +66,7 @@ if __name__ == '__main__':
             redo_strings = {'r', 'redo', 'retry'}
             if recording_cmd in redo_strings:
                 # Restart at the top of the while loop if the "redo" command is given
+                redo_counters += 1
                 continue
 
             wav_data = recorded_audio.get_wav_data()
@@ -74,7 +77,6 @@ if __name__ == '__main__':
             output_file.writeframes(wav_data)
             output_file.close()
 
+            break;
 
-
-
-
+    print("Total redos:" + str(redo_counters))

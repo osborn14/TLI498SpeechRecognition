@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['SpeechRecognizer.py'],
-             pathex=['C:\\Users\\Benjamin\\Desktop\\TLI498SpeechRecognition'],
+             pathex=['C:\\Users\\StephenElliott\\Desktop\\TLI498SpeechRecognition'],
              binaries=[],
              datas=[],
              hiddenimports=[],

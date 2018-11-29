@@ -2,8 +2,7 @@
 Config.py
 
 # Don't need any results
-Results/*
-Old-Results/*
+*[Rr]esults*/*
 
 # Skip the virtual environment
 VirtualEnv/
