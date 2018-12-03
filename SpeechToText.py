@@ -1,5 +1,5 @@
 # !/usr/bin/env python3
-import json, string, queue, csv, time, random, re, wave, pyaudio, os, signal, sys
+import json, string, queue, csv, time, random, re, wave, pyaudio, os, signal, sys, argparse
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -51,11 +51,13 @@ class SpeechRecognizer:
                           deleted_words, word_accuracy, word_error_rate, interpreted_phrase]
         self.results.append(row_of_results)
 
+        self.
+
     def printResults(self, subject_results_folder):
         organized_list = self.sortResults(self.results)
 
         # output_file_name = subject_id + "_" + self.label.lower() + "new.csv"
-        output_file_name = self.label.lower() + "new.csv"
+        output_file_name = self.label.lower() + ".csv"
         output_file_name_with_path = subject_results_folder + output_file_name
         output_file = open(output_file_name_with_path, 'w', newline='')
 
@@ -65,6 +67,11 @@ class SpeechRecognizer:
             writer.writerows(organized_list)
 
         output_file.close()
+
+    def printResultsSummary(self):
+        # TODO: Check for existing file
+        for result in self.results:
+
 
     def recognizeAudio(self):
         raise NotImplementedError
@@ -139,12 +146,17 @@ class Bing(SpeechRecognizer):
         self.label = "bing"
         self.key = key
 
-    def recognizeAudio(self, audio):
+    def recognizeAudio(self, audio, try_count=0):
         try:
             return recognition.recognize_bing(audio, key=self.key)
         except Exception as e:
             print(str(e))
-            return None
+
+            if try_count >= 2:
+
+                return None
+            else:
+                self.recognizeAudio(audio, try_count+1)
 
 
 class Houndify(SpeechRecognizer):
@@ -200,6 +212,22 @@ def signal_handler(sig, frame):
 
 if __name__ == '__main__':
     signal.signal(signal.SIGINT, signal_handler)
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('-s', action="store_true", dest="arg_sphinx", default=False)
+    parser.add_argument('-g', action="store_true", dest="arg_google", default=False)
+    parser.add_argument('-c', action="store_true", dest="arg_google_cloud", default=False)
+    parser.add_argument('-b', action="store_true", dest="arg_bing", default=False)
+    parser.add_argument('-i', action="store_true", dest="arg_ibm", default=False)
+    parser.add_argument('-w', action="store_true", dest="arg_wit", default=False)
+
+    parser_results = parser.parse_args()
+
+    print(parser_results.arg_sphinx)
+    print(parser_results.arg_bing)
+    print(parser_results.arg_ibm)
+
     results_folder = "Results/"
     if not os.path.exists(results_folder):
         os.makedirs(results_folder)
@@ -207,17 +235,20 @@ if __name__ == '__main__':
     recognition = speech_recognition.Recognizer()
 
     speech_recognizer_list = list()
-    speech_recognizer_list.append(Sphinx())
-    speech_recognizer_list.append(Google())
 
-    if CONSTANTS.BING_SPEECH in Config.api_keys:
-        speech_recognizer_list.append(GoogleCloud(json.dumps(Config.api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
-    if CONSTANTS.BING_SPEECH in Config.api_keys:
-        speech_recognizer_list.append(Bing(Config.api_keys[CONSTANTS.BING_SPEECH]))
-    if CONSTANTS.IBM_USERNAME in Config.api_keys and CONSTANTS.IBM_PASSWORD in Config.api_keys:
-        speech_recognizer_list.append(IBM(Config.api_keys[CONSTANTS.IBM_USERNAME], Config.api_keys[CONSTANTS.IBM_PASSWORD]))
-    if CONSTANTS.WIT_AI in Config.api_keys:
-        speech_recognizer_list.append(WitAi(Config.api_keys[CONSTANTS.WIT_AI]))
+
+
+    # speech_recognizer_list.append(Sphinx())
+    # speech_recognizer_list.append(Google())
+    #
+    # if CONSTANTS.BING_SPEECH in Config.api_keys:
+    #     speech_recognizer_list.append(GoogleCloud(json.dumps(Config.api_keys[CONSTANTS.GOOGLE_CLOUD_JSON])))
+    # if CONSTANTS.BING_SPEECH in Config.api_keys:
+    #     speech_recognizer_list.append(Bing(Config.api_keys[CONSTANTS.BING_SPEECH]))
+    # if CONSTANTS.IBM_USERNAME in Config.api_keys and CONSTANTS.IBM_PASSWORD in Config.api_keys:
+    #     speech_recognizer_list.append(IBM(Config.api_keys[CONSTANTS.IBM_USERNAME], Config.api_keys[CONSTANTS.IBM_PASSWORD]))
+    # if CONSTANTS.WIT_AI in Config.api_keys:
+        # speech_recognizer_list.append(WitAi(Config.api_keys[CONSTANTS.WIT_AI]))
 
     # results_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')) + "/Results/"
     results_path = "Results/"
