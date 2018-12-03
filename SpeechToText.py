@@ -238,7 +238,8 @@ if __name__ == '__main__':
 
     results_folder = "Results/"
     if not os.path.exists(results_folder):
-        os.makedirs(results_folder)
+        print("No results folder found!")
+        sys.exit(0)
 
     recognition = speech_recognition.Recognizer()
 
