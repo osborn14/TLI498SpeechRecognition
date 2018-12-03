@@ -12,6 +12,7 @@ import Constants as CONSTANTS
 import speech_recognition as speech_recognition
 
 
+# TODO: Change SpeechRecognizer file name to match file name
 class SpeechRecognizer:
     def __init__(self):
         self.results = list()
@@ -50,8 +51,7 @@ class SpeechRecognizer:
         row_of_results = [phrase_dict[CONSTANTS.ID], phrase_dict[CONSTANTS.PHRASE], inserted_words, substituted_words,
                           deleted_words, word_accuracy, word_error_rate, interpreted_phrase]
         self.results.append(row_of_results)
-
-        self.
+        
 
     def printResults(self, subject_results_folder):
         organized_list = self.sortResults(self.results)
@@ -227,6 +227,14 @@ if __name__ == '__main__':
     print(parser_results.arg_sphinx)
     print(parser_results.arg_bing)
     print(parser_results.arg_ibm)
+
+    sleep(5)
+
+    for i in range(100):
+        sys.stdout.write('The current number is {}'.format(i))
+        sleep(0.1)
+        sys.stdout.write(chr(27) + '[2J') # Escape code to clear terminal
+        sleep(1)
 
     results_folder = "Results/"
     if not os.path.exists(results_folder):
