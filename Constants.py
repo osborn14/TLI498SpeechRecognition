@@ -19,3 +19,6 @@ RECOGNIZE_AUDIO = "Recognize audio"
 PRINT_AND_QUIT = "Print and quit"
 AUDIO_DATA = "Audio data"
 
+TRANSLATION_LIST = "Translation list"
+WORD = "Word"
+ACCEPTABLE_ALTERNATIVE_LIST = "Alternative list"

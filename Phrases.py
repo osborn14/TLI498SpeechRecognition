@@ -43,6 +43,18 @@ phrases = [
      }, {
          CONSTANTS.ID: "b3",
          CONSTANTS.PHRASE: "Set an alarm for 5:30am."
+		 CONSTANTS.TRANSLATION_LIST = [
+			{
+				CONSTANTS.WORD = "5:"
+				CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST = ["five "]
+			}, {
+				CONSTANTS.WORD = "30"
+				CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST = ["thirty "]
+			}, {
+				CONSTANTS.WORD = "am"
+				CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST = ["a m"]
+			}
+		]
      }, {
          CONSTANTS.ID: "b4",
          CONSTANTS.PHRASE: "Play Drake on Spotify."
@@ -52,6 +64,12 @@ phrases = [
      }, {
          CONSTANTS.ID: "b6",
          CONSTANTS.PHRASE: "Raise the temperature 5 degrees."
+		 CONSTANTS.TRANSLATION_LIST = [
+			{
+				CONSTANTS.WORD = "5"
+				CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST = ["five"]
+			}
+		]
      }, {
          CONSTANTS.ID: "b7",
          CONSTANTS.PHRASE: "Add spaghetti to my shopping list."
@@ -67,5 +85,11 @@ phrases = [
      }, {
         CONSTANTS.ID: "b11",
         CONSTANTS.PHRASE: "Play MSNBC from Tunein."
+		CONSTANTS.TRANSLATION_LIST = [
+			{
+				CONSTANTS.WORD = "MSNBC"
+				CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST = ["m s n b c", "m. s. n. b. c."]
+			}
+		]
     }
 ]
