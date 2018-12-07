@@ -57,7 +57,7 @@ class SpeechRecognizer:
         organized_list = self.sortResults(self.results)
 
         # output_file_name = subject_id + "_" + self.label.lower() + "new.csv"
-        output_file_name = self.label.lower() +  + ".csv"
+        output_file_name = self.label.lower() + name_modifier + ".csv"
         output_file_name_with_path = subject_results_folder + output_file_name
         output_file = open(output_file_name_with_path, 'w', newline='')
 
