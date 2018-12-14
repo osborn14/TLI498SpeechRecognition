@@ -1,7 +1,9 @@
-import os, csv
+import os, csv, string
 
+from WordErrorRate import compareWordLists
 from Phrases import phrases
 import Constants as CONSTANTS
+
 
 
 class Phrase:
@@ -44,6 +46,8 @@ class API:
 
         output_file.close()
 
+
+
     def gatherSummaryByPhrase(self):
         for result in self.results:
             phrase_id = result[CONSTANTS.ID]
@@ -81,6 +85,52 @@ class API:
 
         return False
 
+
+def calculatedAdjustedScore(phrase_dict, speech_to_text_phrase):
+    if speech_to_text_phrase == 'na':
+        null_comparison_results = {
+            CONSTANTS.ADJUSTED_PHRASE: 'na',
+            CONSTANTS.INSERTED_WORD_COUNT: 'na',
+            CONSTANTS.SUBSTITUED_WORD_COUNT: 'na',
+            CONSTANTS.DELETED_WORD_COUNT: 'na',
+            CONSTANTS.WORD_ERROR_RATE: 1,
+            CONSTANTS.WORD_ACCURACY: 0
+        }
+
+        return null_comparison_results
+
+    translator = str.maketrans('', '', string.punctuation)
+
+    reference_phrase = phrase_dict[CONSTANTS.PHRASE]
+    reference_word_list = reference_phrase.translate(translator).lower().split()
+    speech_to_text_phrase = speech_to_text_phrase.translate(translator).lower()
+
+    if CONSTANTS.TRANSLATION_LIST in phrase_dict:
+        for spelling_alternative in phrase_dict[CONSTANTS.TRANSLATION_LIST]:
+            for acceptable_alternative in spelling_alternative[CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST]:
+                if acceptable_alternative in speech_to_text_phrase:
+                    speech_to_text_phrase = speech_to_text_phrase.replace(acceptable_alternative, spelling_alternative[CONSTANTS.WORD])
+                    break
+
+        speech_to_text_phrase = speech_to_text_phrase.translate(translator).lower()
+
+    spoken_word_list = speech_to_text_phrase.split()
+
+    comparison_results = compareWordLists(reference_word_list, spoken_word_list)
+    comparison_results[CONSTANTS.ADJUSTED_PHRASE] = speech_to_text_phrase
+
+    inserted_words = comparison_results[CONSTANTS.INSERTED_WORD_COUNT]
+    substituted_words = comparison_results[CONSTANTS.SUBSTITUED_WORD_COUNT]
+    deleted_words = comparison_results[CONSTANTS.DELETED_WORD_COUNT]
+    total_words = comparison_results[CONSTANTS.TOTAL_WORD_COUNT]
+
+    word_error_rate = (inserted_words + deleted_words + substituted_words) / total_words
+    word_accuracy = (total_words - deleted_words - substituted_words) / total_words
+
+    comparison_results[CONSTANTS.WORD_ERROR_RATE] = word_error_rate
+    comparison_results[CONSTANTS.WORD_ACCURACY] = word_accuracy
+
+    return comparison_results
 
 def findIfClassExistsAlready(temp_api_list, api_name):
     for api_class in temp_api_list:
@@ -124,19 +174,27 @@ if __name__ == '__main__':
                 # next(csv_reader)
 
                 for row in csv_reader:
-                    # results_dict[CONSTANTS.SUBJECT] = subject_folder
-                    # results_dict = {key: value for (key, value) in zip(csv_header, row)}
+                    phrase_dict = dict()
+                    for phrase in phrases:
+                        if phrase[CONSTANTS.ID] == row[CONSTANTS.ID]:
+                            phrase_dict = phrase
+
+                    comparison_results = calculatedAdjustedScore(phrase_dict, row[CONSTANTS.INTERPRETED_PHRASE])
+
+                    # if comparison_results[CONSTANTS.ADJUSTED_PHRASE] == "na":
+                    #     continue
 
                     results_dict = {
                         CONSTANTS.SUBJECT: subject_folder,
                         CONSTANTS.ID: row[CONSTANTS.ID],
                         CONSTANTS.PROMPTED_PHRASE: row[CONSTANTS.PROMPTED_PHRASE],
                         CONSTANTS.SPEECH_TO_TEXT: row[CONSTANTS.INTERPRETED_PHRASE],
-                        CONSTANTS.I: row[CONSTANTS.I],
-                        CONSTANTS.S: row[CONSTANTS.S],
-                        CONSTANTS.D: row[CONSTANTS.D],
-                        CONSTANTS.WORD_ACCURACY: row[CONSTANTS.WA],
-                        CONSTANTS.WORD_ERROR_RATE: row[CONSTANTS.WER]
+                        CONSTANTS.ADJUSTED_PHRASE: comparison_results[CONSTANTS.ADJUSTED_PHRASE],
+                        CONSTANTS.I: comparison_results[CONSTANTS.INSERTED_WORD_COUNT],
+                        CONSTANTS.S: comparison_results[CONSTANTS.SUBSTITUED_WORD_COUNT],
+                        CONSTANTS.D: comparison_results[CONSTANTS.DELETED_WORD_COUNT],
+                        CONSTANTS.WORD_ACCURACY: comparison_results[CONSTANTS.WORD_ACCURACY],
+                        CONSTANTS.WORD_ERROR_RATE: comparison_results[CONSTANTS.WORD_ERROR_RATE]
                     }
 
                     # print(row)

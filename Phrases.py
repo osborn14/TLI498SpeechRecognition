@@ -6,10 +6,22 @@ phrase_repeats = 3
 phrases = [
     {
         CONSTANTS.ID: "a1",
-        CONSTANTS.PHRASE: "Please take this dirty table cloth to the cleaners for me."
+        CONSTANTS.PHRASE: "Please take this dirty table cloth to the cleaners for me.",
+        CONSTANTS.TRANSLATION_LIST: [
+            {
+                CONSTANTS.WORD: "table cloth",
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["tablecloth"]
+            }
+        ]
     }, {
         CONSTANTS.ID: "a2",
-        CONSTANTS.PHRASE: "My father ran him off here six years ago."
+        CONSTANTS.PHRASE: "My father ran him off here six years ago.",
+        CONSTANTS.TRANSLATION_LIST: [
+            {
+                CONSTANTS.WORD: "six",
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["6"]
+            }
+        ]
     }, {
         CONSTANTS.ID: "a3",
         CONSTANTS.PHRASE: "Who authorized the unlimited expense account?"
@@ -21,7 +33,13 @@ phrases = [
         CONSTANTS.PHRASE: "The fish began to leap frantically on the surface of the small lake."
     }, {
         CONSTANTS.ID: "a6",
-        CONSTANTS.PHRASE: "Micheal colored the bedroom wall with crayons."
+        CONSTANTS.PHRASE: "Micheal colored the bedroom wall with crayons.",
+        CONSTANTS.TRANSLATION_LIST: [
+            {
+                CONSTANTS.WORD: "micheal",
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["michael"]
+            }
+        ]
     }, {
         CONSTANTS.ID: "a7",
         CONSTANTS.PHRASE: "Right now may not be the best time for business mergers."
@@ -51,8 +69,11 @@ phrases = [
                 CONSTANTS.WORD: "30",
                 CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["thirty "]
             }, {
+                CONSTANTS.WORD: "5:30",
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["530"]
+            }, {
                 CONSTANTS.WORD: "am",
-                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["a m"]
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: [" a m", " a. m.", " am"]
             }
         ]
     }, {
@@ -68,6 +89,9 @@ phrases = [
             {
                 CONSTANTS.WORD: "5",
                 CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["five"]
+            }, {
+                CONSTANTS.WORD: " degrees",
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["°"]
             }
         ]
     }, {
@@ -75,7 +99,13 @@ phrases = [
         CONSTANTS.PHRASE: "Add spaghetti to my shopping list."
     }, {
         CONSTANTS.ID: "b8",
-        CONSTANTS.PHRASE: "How much is a round-trip flight to New York?"
+        CONSTANTS.PHRASE: "How much is a round-trip flight to New York?",
+        CONSTANTS.TRANSLATION_LIST: [
+            {
+                CONSTANTS.WORD: "round-trip",
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["round trip"]
+            }
+        ]
     }, {
         CONSTANTS.ID: "b9",
         CONSTANTS.PHRASE: "What's the best restaurant in Berlin?"
@@ -87,8 +117,11 @@ phrases = [
         CONSTANTS.PHRASE: "Play MSNBC from Tunein.",
         CONSTANTS.TRANSLATION_LIST: [
             {
-                CONSTANTS.WORD: "MSNBC",
+                CONSTANTS.WORD: "msnbc",
                 CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["m s n b c", "m. s. n. b. c."]
+            }, {
+                CONSTANTS.WORD: "Tunein",
+                CONSTANTS.ACCEPTABLE_ALTERNATIVE_LIST: ["tune in"]
             }
         ]
     }
